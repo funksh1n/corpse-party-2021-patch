@@ -1211,6 +1211,8 @@ public class MapControl : MonoBehaviour
                 PauseMenuIndex = 0;
                 m_CpMenuPaintControl.SetActivePauseMenu(flag: true);
                 m_CpMenuPaintControl.SetActivePauseMenuBg(flag: true);
+                m_CpMenuPaintControl.SetActivePlayerStatus(flag: true, m_cpEventSubControl.m_Party_Set);
+                m_CpMenuPaintControl.SetActiveItemList(flag: true);
                 m_CpMenuPaintControl.SetPauseMenuMode(PauseMenuIndex, 1);
                 m_cpEventSubControl.CkSetActiveDeadNameTagSubPaint(flag: false);
                 m_CpMenuPaintControl.CkSetActiveFloorNameMessage(flag: false);
@@ -1323,8 +1325,8 @@ public class MapControl : MonoBehaviour
             case PHASE._PAUSE_MENU_E:
                 m_CpMenuPaintControl.SetActivePauseMenu(flag: false);
                 m_CpMenuPaintControl.SetActivePauseMenuBg(flag: false);
-                m_CpMenuPaintControl.SetActivePlayerStatus(flag: true, m_cpEventSubControl.m_Party_Set);
-                m_CpMenuPaintControl.SetActiveItemList(flag: true);
+                m_CpMenuPaintControl.SetActivePlayerStatus(flag: false, m_cpEventSubControl.m_Party_Set);
+                m_CpMenuPaintControl.SetActiveItemList(flag: false);
                 m_cpEventSubControl.CkSetActiveDeadNameTagSubPaint(flag: true);
                 m_CpMenuPaintControl.CkSetActiveFloorNameMessage(flag: true);
                 GlobalVariable.m_InfomationWindowControl.SetInfoNumber(1);
@@ -2390,8 +2392,6 @@ public class MapControl : MonoBehaviour
         {
             m_lEventRunFlag = 0;
             m_lEventRunWait = 0;
-            m_CpMenuPaintControl.SetActivePlayerStatus(flag: true, m_cpEventSubControl.m_Party_Set);
-            m_CpMenuPaintControl.SetActiveItemList(flag: true);
         }
     }
 
